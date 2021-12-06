@@ -18,22 +18,23 @@ def part1():
                 ymax=max(ymax,a[3])
                 b.append(a)
 
-        c=[[0 for i in range(xmax+1)] for j in range(ymax+1)]
+    print(len(b))
+    c=[[0 for i in range(xmax+1)] for j in range(ymax+1)]
 
-        for i in b:
-            if(i[0]==i[2]):
-                for j in range(i[1],i[3]+1):
-                    c[j][i[0]]=c[j][i[0]]+1
-            else:
-                for j in range(i[0],i[2]+1):
-                    c[i[1]][j]=c[i[1]][j]+1
+    for i in b:
+        if(i[0]==i[2]):
+            for j in range(i[1],i[3]+1):
+                c[j][i[0]]=c[j][i[0]]+1
+        else:
+            for j in range(i[0],i[2]+1):
+                c[i[1]][j]=c[i[1]][j]+1
 
-        count=0
-        for i in c:
-            for j in i:
-                if(j>1):
-                    count=count+1
-        
-        return count
+    count=0
+    for i in c:
+        for j in i:
+            if(j>1):
+                count=count+1
+    
+    return count
 
 print(part1())
